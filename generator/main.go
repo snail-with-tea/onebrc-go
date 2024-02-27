@@ -24,6 +24,8 @@ func init() {
 	flag.StringVar(&GenSize, "S", deflt, usage+" (shorthand)")
 }
 
+// Function that will parse size flag into actual number.
+// Extensively uses regex
 func ParseSize(s string) (uint64, error) {
 	reg := regexp.MustCompile("([0-9]+[kmbKMB])|([0-9]+)")
 	cor := reg.FindString(s)
